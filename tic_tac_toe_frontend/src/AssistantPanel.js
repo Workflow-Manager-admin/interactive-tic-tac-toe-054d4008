@@ -54,7 +54,7 @@ function AssistantPanel({ open, onClose }) {
             },
             ...updatedMessages.slice(-6), // last 6 messages to limit context
           ],
-          max_tokens: 200,
+          max_completion_tokens: 200,
           temperature: 0.5,
         }),
       });

@@ -187,7 +187,7 @@ It's your turn as O. Return ONE move as an integer index [0-8] that is empty and
             model: "o3-mini",
             messages: [{ role: "user", content: userPrompt }],
             temperature: 0.0,
-            max_tokens: 4,
+            max_completion_tokens: 4,
           }),
         }
       );
