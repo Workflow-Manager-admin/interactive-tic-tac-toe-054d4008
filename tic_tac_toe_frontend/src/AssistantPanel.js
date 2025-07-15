@@ -37,7 +37,7 @@ function AssistantPanel({ open, onClose }) {
         window.env &&
         window.env.REACT_APP_OPENAI_API_KEY;
 
-      // Use gpt-3.5-turbo for cost and speed
+      // Use o3-mini as the OpenAI model
       const response = await fetch("https://api.openai.com/v1/chat/completions", {
         method: "POST",
         headers: {
@@ -45,7 +45,7 @@ function AssistantPanel({ open, onClose }) {
           Authorization: `Bearer ${apiKey}`,
         },
         body: JSON.stringify({
-          model: "gpt-3.5-turbo",
+          model: "o3-mini",
           messages: [
             {
               role: "system",
