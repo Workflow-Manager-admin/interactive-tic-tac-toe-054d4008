@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import AssistantPanel from './AssistantPanel';
+import './AssistantPanel.css';
 
 // PUBLIC_INTERFACE
 function App() {
@@ -15,6 +17,8 @@ function App() {
   const toggleTheme = () => {
     setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
   };
+
+  const [assistantOpen, setAssistantOpen] = useState(false);
 
   return (
     <div className="App">
@@ -42,6 +46,19 @@ function App() {
           Learn React
         </a>
       </header>
+      {/* Assistant Floating Action Button */}
+      {!assistantOpen && (
+        <button
+          className="assistant-fab"
+          aria-label="Open game assistant"
+          title="Ask game assistant"
+          onClick={() => setAssistantOpen(true)}
+        >
+          🤖
+        </button>
+      )}
+      {/* Assistant Panel */}
+      <AssistantPanel open={assistantOpen} onClose={() => setAssistantOpen(false)} />
     </div>
   );
 }
